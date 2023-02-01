@@ -1,14 +1,24 @@
 import React from 'react';
+import {NavLink, Outlet, useLoaderData, useParams} from "react-router-dom";
 
 function NoticesFollowing(props) {
+  const noticesData = useLoaderData();
+  const params = useParams();
+
   return (
     <div>
-      <h3>팔로잉하는 작가의 공지</h3>
-      <p>작가 공지</p>
-      <p>작가 공지</p>
-      <p>작가 공지</p>
-      <p>작가 공지</p>
-      <p>작가 공지</p>
+
+      <ul>
+        { noticesData.map((noticeData) => {
+          return (
+            <li key={`notices_following_${noticeData.id}`}>
+              <NavLink to={`./${noticeData.id}`}>{noticeData.notice_title}</NavLink>
+              {/*{ params.notice_id === ''+noticeData.id && <Outlet /> }*/}
+
+            </li>
+          )
+        })}
+      </ul>
     </div>
   );
 }

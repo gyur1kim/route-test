@@ -60,16 +60,17 @@ const router = createBrowserRouter(
           index
           element={ <NoticesFollowing /> }
           loader={getNotices}
-        >
-          {/*<Route path=":notice_id" element={<NoticesDetail/>} loader={getNotice}/>*/}
-        </Route>
+        />
         <Route
           path="mine"
           element={ <NoticesMine /> }
-          loader={getNotices}
-        >
-          <Route path=":notice_id" element={<NoticesDetail/>} loader={noticeLoader}/>
-        </Route>
+          loader={getNotices}/>
+        <Route
+          path=":notice_id"
+          element={<NoticesDetail/>}
+          loader={noticeLoader}
+        />
+
       </Route>
 
 

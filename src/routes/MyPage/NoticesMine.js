@@ -15,7 +15,6 @@ function NoticesMine(props) {
 
   return (
     <div>
-      <h3>나의 공지</h3>
 
       { isFormOpen?
         <>
@@ -40,11 +39,10 @@ function NoticesMine(props) {
 
       <ul>
         { noticesData.map((noticeData) => {
-
           return (
             <li key={`notices_mine_${noticeData.id}`}>
-              <NavLink to={`${noticeData.id}`}>{noticeData.notice_title}</NavLink>
-              { params.notice_id === ''+noticeData.id && <Outlet /> }
+              <NavLink to={`../${noticeData.id}`}>{noticeData.notice_title}</NavLink>
+              {/*{ params.notice_id === ''+noticeData.id && <Outlet /> }*/}
 
             </li>
             )

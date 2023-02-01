@@ -10,6 +10,7 @@ function ArtsIndex(props) {
         <div>대표작품 있으면 렌더링, 없으면 설정하라는 문구 출력하자</div>
       </div>
 
+      {/* 여기는 다 활성화 */}
       <div className='favorite_arts'>
         <h3>나의 작품</h3>
         <div>나의 작품이 있으면 다 보이고, 없으면 업로드하면 작가가 될 수 있다고 꼬드기자.</div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {useLoaderData} from "react-router-dom";
+import {useLoaderData, useNavigate} from "react-router-dom";
 import {getNotice} from "../../notices";
 
 export function loader({params}) {
@@ -9,9 +9,14 @@ export function loader({params}) {
 
 function NoticesDetail(props) {
   const noticeData = useLoaderData();
+  const navigate = useNavigate();
   console.log('noticeData', noticeData);
   return (
-    <div>{noticeData.notice_content}</div>
+    <div>
+      <button onClick={()=>navigate(-1)}>앞으로가기</button>
+      <h3>{noticeData.notice_title}</h3>
+      <div>{noticeData.notice_content}</div>
+    </div>
   );
 }
 
