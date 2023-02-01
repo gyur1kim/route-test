@@ -1,13 +1,15 @@
 import React from 'react';
-import { useLocation, Form } from "react-router-dom";
+import { useLocation, Form, useNavigate } from "react-router-dom";
 
-function UpdateProfile({ state }) {
+// 모달창 구현해야됨!!!
+function EditProfile({ state }) {
   const location = useLocation();
+  const navigate = useNavigate();
   console.log(location);
   return (
     <div>
       업데이트 는 좀 나중에 해야할란가
-      <Form method="POST" action='#'>
+      <Form method="post">
         {/* 프로필 이미지는 나중에 npm 에서 drag 모듈을 받자 */}
         <label htmlFor="nickname">닉네임</label>
         <input type="text" id="nickname" name="nickname" />
@@ -28,11 +30,14 @@ function UpdateProfile({ state }) {
         <input type="text" id="youtube" name="youtube" placeholder='youtube' />
         <label htmlFor="homepage">홈페이지</label>
         <input type="text" id="homepage" name="homepage" placeholder='homepage' />
-
-        <button type="submit">수정하기</button>
+        
+        <div>
+          <button type="submit">수정하기</button>
+          <button type="button" onClick={()=>{ navigate(-1) }}>취소</button>
+        </div>
       </Form>
     </div>
   );
 }
 
-export default UpdateProfile;
+export default EditProfile;
