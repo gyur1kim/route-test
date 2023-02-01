@@ -39,6 +39,7 @@ const router = createBrowserRouter(
       path="/mypage"
       element={<Layout />}
     >
+
       <Route
         path="arts"
         element={<ArtsRoot />}
@@ -50,6 +51,7 @@ const router = createBrowserRouter(
         <Route path="owns" element={ <ArtsMyCollections /> } />
       </Route>
 
+      {/* 공지 detail 띄우기는 잠시 보류하자;;;*/}
       <Route
         path="notices"
         element={ <NoticesRoot /> }
@@ -70,9 +72,11 @@ const router = createBrowserRouter(
         </Route>
       </Route>
 
+
       <Route
         path="curations"
       ></Route>
+
       <Route
         path="commissions"
       ></Route>

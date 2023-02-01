@@ -3,15 +3,15 @@ import {useLoaderData} from "react-router-dom";
 import {getNotice} from "../../notices";
 
 export function loader({params}) {
-  const notice = getNotice(params.notice_id);
+  const notice = getNotice(+params.notice_id)
   return notice;
 }
 
 function NoticesDetail(props) {
   const noticeData = useLoaderData();
-  console.log(noticeData);
+  console.log('noticeData', noticeData);
   return (
-    <div>디테일~</div>
+    <div>{noticeData.notice_content}</div>
   );
 }
 

@@ -47,6 +47,8 @@ export function getNotice(id) {
     }
   ];
 
-  let notice = notices.find((notice) => {return notice.id === id});
+  let notice = notices.find((notice) => {return (notice.id) === id});
+
+  // notices.find
   return notice ?? null;
 }

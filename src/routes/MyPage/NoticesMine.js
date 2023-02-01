@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Form, useLoaderData, NavLink, Outlet } from 'react-router-dom'
+import { Form, useLoaderData, NavLink, Outlet, useLocation, useParams } from 'react-router-dom'
 
 
 // 작가가 아니면 접근 금지
@@ -9,7 +9,9 @@ function NoticesMine(props) {
   // const [isNoticeOpen, setIsNoticeOpen] = useState(false);
 
   const noticesData = useLoaderData();
-  console.log(noticesData);
+  const location = useLocation();
+  const params = useParams();
+  console.log(params.notice_id)
 
   return (
     <div>
@@ -35,12 +37,15 @@ function NoticesMine(props) {
         </button>
       }
 
+
       <ul>
         { noticesData.map((noticeData) => {
-          console.log(noticeData)
+
           return (
             <li key={`notices_mine_${noticeData.id}`}>
               <NavLink to={`${noticeData.id}`}>{noticeData.notice_title}</NavLink>
+              { params.notice_id === ''+noticeData.id && <Outlet /> }
+
             </li>
             )
         })}
