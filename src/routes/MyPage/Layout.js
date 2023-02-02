@@ -5,7 +5,7 @@ import ProfileImg from "../../components/ProfileImg";
 
 export default function Layout(props) {
   const user = {
-    isArtist: true,
+    isArtist: false,
     isMyPage: true
   }
 
@@ -30,8 +30,7 @@ export default function Layout(props) {
             <div className="youtube">유튜브</div>
           </div> : null }
 
-          {/* userSeq가 내가 아니면 남의 버튼 렌더링, 거기서도 작가인지 아닌지 구분할 것 */}
-          {/* userSeq가 나라면 나의 버튼 렌더링, 거기서도 작가인지 아닌지 구분할 것 */}
+          {/* userSeq가 내가 아니면 남의 버튼 렌더링, 나라면 나의 버튼 렌더링 */}
           { user.isMyPage?
             <div className="profile_buttons">
               {/*<Link to='edit_profile'><button className='edit_profile'>정보 수정하기</button></Link>*/}
@@ -50,8 +49,9 @@ export default function Layout(props) {
 
       <nav>
         <NavLink to='arts'>작품</NavLink>
-        <NavLink to='notices'>공지사항</NavLink>
-        <NavLink to='curations'>큐레이션</NavLink>
+
+        <NavLink to={ (user.isMyPage && !user.isArtist) ? 'notices/following' : 'notices/mine' }>공지사항</NavLink>
+        <NavLink to={ (user.isMyPage && !user.isArtist) ? 'curations/following' : 'curations/mine' }>큐레이션</NavLink>
         <NavLink to='commissions'>커미션</NavLink>
       </nav>
 

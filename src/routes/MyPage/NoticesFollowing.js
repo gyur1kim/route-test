@@ -12,7 +12,7 @@ function NoticesFollowing(props) {
         { noticesData.map((noticeData) => {
           return (
             <li key={`notices_following_${noticeData.id}`}>
-              <NavLink to={`./${noticeData.id}`}>{noticeData.notice_title}</NavLink>
+              <NavLink to={`../${noticeData.id}`}>{noticeData.notice_title}</NavLink>
               {/*{ params.notice_id === ''+noticeData.id && <Outlet /> }*/}
 
             </li>
